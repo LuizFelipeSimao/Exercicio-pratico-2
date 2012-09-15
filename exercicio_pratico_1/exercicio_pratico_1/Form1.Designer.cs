@@ -33,6 +33,10 @@
             this.Consulta_filme = new System.Windows.Forms.TabPage();
             this.cadastrar = new System.Windows.Forms.Button();
             this.limpar = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lista_genero = new System.Windows.Forms.ComboBox();
             this.Cad_filme.SuspendLayout();
             this.cadastro_filme.SuspendLayout();
             this.SuspendLayout();
@@ -50,6 +54,10 @@
             // cadastro_filme
             // 
             this.cadastro_filme.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.cadastro_filme.Controls.Add(this.lista_genero);
+            this.cadastro_filme.Controls.Add(this.label2);
+            this.cadastro_filme.Controls.Add(this.textBox1);
+            this.cadastro_filme.Controls.Add(this.label1);
             this.cadastro_filme.Controls.Add(this.limpar);
             this.cadastro_filme.Controls.Add(this.cadastrar);
             this.cadastro_filme.Location = new System.Drawing.Point(4, 22);
@@ -89,6 +97,50 @@
             this.limpar.Text = "Limpar";
             this.limpar.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(77, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Nome do Filme";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(9, 31);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(792, 20);
+            this.textBox1.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 54);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(42, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Gênero";
+            // 
+            // lista_genero
+            // 
+            this.lista_genero.FormattingEnabled = true;
+            this.lista_genero.Items.AddRange(new object[] {
+            "Ação",
+            "Aventura",
+            "Comédia",
+            "Drama",
+            "Romance",
+            "Infantil",
+            "Terror",
+            "Suspense",
+            "Documentário",
+            "Ficção-Cientifica"});
+            this.lista_genero.Location = new System.Drawing.Point(9, 70);
+            this.lista_genero.Name = "lista_genero";
+            this.lista_genero.Size = new System.Drawing.Size(205, 21);
+            this.lista_genero.TabIndex = 5;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -101,6 +153,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Cad_filme.ResumeLayout(false);
             this.cadastro_filme.ResumeLayout(false);
+            this.cadastro_filme.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -112,6 +165,10 @@
         private System.Windows.Forms.Button limpar;
         private System.Windows.Forms.Button cadastrar;
         private System.Windows.Forms.TabPage Consulta_filme;
+        private System.Windows.Forms.ComboBox lista_genero;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
     }
 }
 
