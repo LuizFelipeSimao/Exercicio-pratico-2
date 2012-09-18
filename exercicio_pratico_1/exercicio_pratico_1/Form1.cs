@@ -19,15 +19,30 @@ namespace exercicio_pratico_1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //instanciando o objeto filme apartir da classe Filmes
-            Filme filmes = new Filme();
-            //Criando um vetor dinamico da Classe Filme
-            List<Filme> lista_filmes = new List<Filme>();
+
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+          
         }
+
+        private void cadastrar_Click(object sender, EventArgs e)
+        {
+            //instanciando o objeto filme apartir da classe Filmes
+            Filme filme = new Filme();
+            //Criando um vetor dinamico da Classe Filme
+            Dictionary<string, Filme> dicionario_filmes = new Dictionary<string, Filme>();
+            //armazenando os valor digitados pelo usuario na classe
+            filme.Nome = nome_filme.Text;
+            filme.Genero = lista_genero.SelectedItem.ToString();
+            filme.Data_Assistido = data.Text;
+            filme.Local = local.Text;
+            //armazenando a classe no dicionario
+            dicionario_filmes.Add(nome_filme.Text, filme);
+            //colocando os valore no list view
+            
+        }
+
     }
 }

@@ -28,21 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Ação", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("Aventura", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("Comédia", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("Drama", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup5 = new System.Windows.Forms.ListViewGroup("Terror", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup6 = new System.Windows.Forms.ListViewGroup("Suspense", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup7 = new System.Windows.Forms.ListViewGroup("Infantil", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup8 = new System.Windows.Forms.ListViewGroup("Documetário", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup9 = new System.Windows.Forms.ListViewGroup("Romance", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup10 = new System.Windows.Forms.ListViewGroup("Ficção-Científica", System.Windows.Forms.HorizontalAlignment.Left);
             this.Cad_filme = new System.Windows.Forms.TabControl();
             this.cadastro_filme = new System.Windows.Forms.TabPage();
+            this.remover = new System.Windows.Forms.Button();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.local = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.data = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
             this.lista_genero = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.nome_filme = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.editar = new System.Windows.Forms.Button();
             this.cadastrar = new System.Windows.Forms.Button();
             this.Consulta_filme = new System.Windows.Forms.TabPage();
-            this.label3 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.remover = new System.Windows.Forms.Button();
             this.Cad_filme.SuspendLayout();
             this.cadastro_filme.SuspendLayout();
             this.SuspendLayout();
@@ -64,13 +74,13 @@
             this.cadastro_filme.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.cadastro_filme.Controls.Add(this.remover);
             this.cadastro_filme.Controls.Add(this.listView1);
-            this.cadastro_filme.Controls.Add(this.textBox2);
+            this.cadastro_filme.Controls.Add(this.local);
             this.cadastro_filme.Controls.Add(this.label4);
-            this.cadastro_filme.Controls.Add(this.dateTimePicker1);
+            this.cadastro_filme.Controls.Add(this.data);
             this.cadastro_filme.Controls.Add(this.label3);
             this.cadastro_filme.Controls.Add(this.lista_genero);
             this.cadastro_filme.Controls.Add(this.label2);
-            this.cadastro_filme.Controls.Add(this.textBox1);
+            this.cadastro_filme.Controls.Add(this.nome_filme);
             this.cadastro_filme.Controls.Add(this.label1);
             this.cadastro_filme.Controls.Add(this.editar);
             this.cadastro_filme.Controls.Add(this.cadastrar);
@@ -81,6 +91,89 @@
             this.cadastro_filme.TabIndex = 0;
             this.cadastro_filme.Text = "Cadastro de Filmes";
             this.cadastro_filme.UseVisualStyleBackColor = true;
+            // 
+            // remover
+            // 
+            this.remover.Location = new System.Drawing.Point(726, 377);
+            this.remover.Name = "remover";
+            this.remover.Size = new System.Drawing.Size(75, 23);
+            this.remover.TabIndex = 11;
+            this.remover.Text = "Remover";
+            this.remover.UseVisualStyleBackColor = true;
+            // 
+            // listView1
+            // 
+            listViewGroup1.Header = "Ação";
+            listViewGroup1.Name = "acao";
+            listViewGroup2.Header = "Aventura";
+            listViewGroup2.Name = "aventura";
+            listViewGroup3.Header = "Comédia";
+            listViewGroup3.Name = "comedia";
+            listViewGroup4.Header = "Drama";
+            listViewGroup4.Name = "drama";
+            listViewGroup5.Header = "Terror";
+            listViewGroup5.Name = "terror";
+            listViewGroup6.Header = "Suspense";
+            listViewGroup6.Name = "suspense";
+            listViewGroup7.Header = "Infantil";
+            listViewGroup7.Name = "infantil";
+            listViewGroup8.Header = "Documetário";
+            listViewGroup8.Name = "documetario";
+            listViewGroup9.Header = "Romance";
+            listViewGroup9.Name = "romance";
+            listViewGroup10.Header = "Ficção-Científica";
+            listViewGroup10.Name = "ficçao";
+            this.listView1.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
+            listViewGroup1,
+            listViewGroup2,
+            listViewGroup3,
+            listViewGroup4,
+            listViewGroup5,
+            listViewGroup6,
+            listViewGroup7,
+            listViewGroup8,
+            listViewGroup9,
+            listViewGroup10});
+            this.listView1.Location = new System.Drawing.Point(15, 105);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(785, 261);
+            this.listView1.TabIndex = 10;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            // 
+            // local
+            // 
+            this.local.Location = new System.Drawing.Point(415, 70);
+            this.local.Name = "local";
+            this.local.Size = new System.Drawing.Size(385, 20);
+            this.local.TabIndex = 9;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(412, 54);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(33, 13);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Local";
+            // 
+            // data
+            // 
+            this.data.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.data.Location = new System.Drawing.Point(243, 70);
+            this.data.Name = "data";
+            this.data.Size = new System.Drawing.Size(122, 20);
+            this.data.TabIndex = 7;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(240, 54);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(125, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Data em que foi assistido";
             // 
             // lista_genero
             // 
@@ -110,12 +203,12 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Gênero";
             // 
-            // textBox1
+            // nome_filme
             // 
-            this.textBox1.Location = new System.Drawing.Point(9, 31);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(792, 20);
-            this.textBox1.TabIndex = 3;
+            this.nome_filme.Location = new System.Drawing.Point(9, 31);
+            this.nome_filme.Name = "nome_filme";
+            this.nome_filme.Size = new System.Drawing.Size(792, 20);
+            this.nome_filme.TabIndex = 3;
             // 
             // label1
             // 
@@ -143,6 +236,7 @@
             this.cadastrar.TabIndex = 0;
             this.cadastrar.Text = "Cadastrar";
             this.cadastrar.UseVisualStyleBackColor = true;
+            this.cadastrar.Click += new System.EventHandler(this.cadastrar_Click);
             // 
             // Consulta_filme
             // 
@@ -154,58 +248,6 @@
             this.Consulta_filme.TabIndex = 1;
             this.Consulta_filme.Text = "Consulta de Filmes";
             this.Consulta_filme.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(240, 54);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(125, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Data em que foi assistido";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(243, 70);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(122, 20);
-            this.dateTimePicker1.TabIndex = 7;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(412, 54);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(33, 13);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Local";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(415, 70);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(385, 20);
-            this.textBox2.TabIndex = 9;
-            // 
-            // listView1
-            // 
-            this.listView1.Location = new System.Drawing.Point(15, 105);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(785, 261);
-            this.listView1.TabIndex = 10;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
-            // 
-            // remover
-            // 
-            this.remover.Location = new System.Drawing.Point(726, 377);
-            this.remover.Name = "remover";
-            this.remover.Size = new System.Drawing.Size(75, 23);
-            this.remover.TabIndex = 11;
-            this.remover.Text = "Remover";
-            this.remover.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -233,12 +275,12 @@
         private System.Windows.Forms.TabPage Consulta_filme;
         private System.Windows.Forms.ComboBox lista_genero;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox nome_filme;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox local;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker data;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button remover;
     }
