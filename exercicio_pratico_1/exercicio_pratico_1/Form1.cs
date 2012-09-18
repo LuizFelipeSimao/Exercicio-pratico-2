@@ -24,5 +24,10 @@ namespace exercicio_pratico_1
             //Criando um vetor dinamico da Classe Filme
             List<Filme> lista_filmes = new List<Filme>();
         }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

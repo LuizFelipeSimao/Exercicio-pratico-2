@@ -1,0 +1,9 @@
+C:\Exercicio\exercicio_pratico_1\exercicio_pratico_1\bin\Debug\exercicio_pratico_1.exe
+C:\Exercicio\exercicio_pratico_1\exercicio_pratico_1\bin\Debug\exercicio_pratico_1.pdb
+C:\Exercicio\exercicio_pratico_1\exercicio_pratico_1\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Exercicio\exercicio_pratico_1\exercicio_pratico_1\obj\x86\Debug\exercicio_pratico_1.Form1.resources
+C:\Exercicio\exercicio_pratico_1\exercicio_pratico_1\obj\x86\Debug\exercicio_pratico_1.Properties.Resources.resources
+C:\Exercicio\exercicio_pratico_1\exercicio_pratico_1\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Exercicio\exercicio_pratico_1\exercicio_pratico_1\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Exercicio\exercicio_pratico_1\exercicio_pratico_1\obj\x86\Debug\exercicio_pratico_1.exe
+C:\Exercicio\exercicio_pratico_1\exercicio_pratico_1\obj\x86\Debug\exercicio_pratico_1.pdb
