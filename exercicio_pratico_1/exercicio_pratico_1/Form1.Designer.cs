@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Ação", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("Aventura", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("Comédia", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("Drama", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Aventura", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("Comédia", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("Drama", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("Ação", System.Windows.Forms.HorizontalAlignment.Left);
             System.Windows.Forms.ListViewGroup listViewGroup5 = new System.Windows.Forms.ListViewGroup("Terror", System.Windows.Forms.HorizontalAlignment.Left);
             System.Windows.Forms.ListViewGroup listViewGroup6 = new System.Windows.Forms.ListViewGroup("Suspense", System.Windows.Forms.HorizontalAlignment.Left);
             System.Windows.Forms.ListViewGroup listViewGroup7 = new System.Windows.Forms.ListViewGroup("Infantil", System.Windows.Forms.HorizontalAlignment.Left);
@@ -103,14 +103,14 @@
             // 
             // listView1
             // 
-            listViewGroup1.Header = "Ação";
-            listViewGroup1.Name = "acao";
-            listViewGroup2.Header = "Aventura";
-            listViewGroup2.Name = "aventura";
-            listViewGroup3.Header = "Comédia";
-            listViewGroup3.Name = "comedia";
-            listViewGroup4.Header = "Drama";
-            listViewGroup4.Name = "drama";
+            listViewGroup1.Header = "Aventura";
+            listViewGroup1.Name = "aventura";
+            listViewGroup2.Header = "Comédia";
+            listViewGroup2.Name = "comedia";
+            listViewGroup3.Header = "Drama";
+            listViewGroup3.Name = "drama";
+            listViewGroup4.Header = "Ação";
+            listViewGroup4.Name = "acao";
             listViewGroup5.Header = "Terror";
             listViewGroup5.Name = "terror";
             listViewGroup6.Header = "Suspense";
