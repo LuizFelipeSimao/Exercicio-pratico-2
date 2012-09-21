@@ -10,9 +10,7 @@ using System.Windows.Forms;
 namespace exercicio_pratico_1
 {
     public partial class Form1 : Form
-    {   
-        //Criando um alista de classe de filme
-        List<Filme> lista_filme = new List<Filme>();
+    {
         //Criando um vetor dinamico da Classe Filme
         Dictionary<int, List<Filme>> dicionario_filmes = new Dictionary<int, List<Filme>>();
         //instanciando o objeto filme apartir da classe Filmes
@@ -31,20 +29,30 @@ namespace exercicio_pratico_1
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-          
+
         }
 
         private void cadastrar_Click(object sender, EventArgs e)
-        {          
+        {
             //armazenando os valor digitados pelo usuario na classe
             filme.Nome = nome_filme.Text;
             filme.Genero = lista_genero.SelectedItem.ToString();
             filme.Data_Assistido = data.Text;
             filme.Local = local.Text;
-            //armazenando a classe na lista
-            lista_filme.Add(filme);
-            //armazenando a lista de filmes de um mesmo genero no dicionario
-            dicionario_filmes.Add(lista_genero.SelectedIndex, lista_filme);
+            if (dicionario_filmes.ContainsKey(lista_genero.SelectedIndex))
+            {
+                List<Filme> l = dicionario_filmes[lista_genero.SelectedIndex];
+                l.Add(filme);
+            }
+            else
+            {
+                //Criando um alista de classe de filme
+                List<Filme> lista_filme = new List<Filme>();
+                //armazenando a classe na lista
+                lista_filme.Add(filme);
+                //armazenando a lista de filmes de um mesmo genero no dicionario
+                dicionario_filmes.Add(lista_genero.SelectedIndex, lista_filme);
+            }
             //criando um item para listview
             ListViewItem novo_item = new ListViewItem();
             novo_item.Text = filme.Nome;
@@ -57,16 +65,27 @@ namespace exercicio_pratico_1
 
         private void remover_Click(object sender, EventArgs e)
         {
-            //string auxiliar = listView1.SelectedItems.ToString();
-            //int genero = listView1;
-            //lista_filme.Remove();
-            //listView1.SelectedItems[0].Remove();
+            int auxiliar = listView1.Groups.IndexOf(listView1.SelectedItems[0].Group);
+            List<Filme> lista = dicionario_filmes[auxiliar];
+            foreach (Filme l in lista)
+            {
+                if (l == ToString(listView1.SelectedItems))
+                {
+                    l
+                }
+            }
+
+        }
+
+        private Filme ToString(ListView.SelectedListViewItemCollection selectedListViewItemCollection)
+        {
+            throw new NotImplementedException();
         }
 
         private void editar_Click(object sender, EventArgs e)
         {
-            foreach ()) ;
-           
+            int auxiliar = listView1.Groups.IndexOf(listView1.SelectedItems[0].Group);
+            
         }
     }
 }
