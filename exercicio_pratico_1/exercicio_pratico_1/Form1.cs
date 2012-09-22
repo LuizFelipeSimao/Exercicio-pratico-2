@@ -13,7 +13,6 @@ namespace exercicio_pratico_1
     {
         //Criando um vetor dinamico da Classe Filme
         Dictionary<int, List<Filme>> dicionario_filmes = new Dictionary<int, List<Filme>>();
-        //instanciando o objeto filme apartir da classe Filmes
         Filme filme = new Filme();
 
         public Form1()
@@ -25,11 +24,6 @@ namespace exercicio_pratico_1
         {
             //Ligando os Grupos do ListVIew aos valores do Combobox
             lista_genero.DataSource = listView1.Groups;
-        }
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void cadastrar_Click(object sender, EventArgs e)
@@ -114,8 +108,7 @@ namespace exercicio_pratico_1
                     novo_item.SubItems.Add(l.Local);
                     listView1.Items.Add(novo_item);
                 }
-            }
-            
+            }   
         }
     }
 }
