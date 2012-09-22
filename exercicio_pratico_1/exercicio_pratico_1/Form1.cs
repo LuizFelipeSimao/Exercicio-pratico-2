@@ -63,28 +63,58 @@ namespace exercicio_pratico_1
             listView1.Items.Add(novo_item);
         }
 
+        //evento para remover filmes da lista
         private void remover_Click(object sender, EventArgs e)
         {
+            //atribui a variavel auxiliar o valor do indice do grupo selecionado no listview
             int auxiliar = listView1.Groups.IndexOf(listView1.SelectedItems[0].Group);
+            //atribui a variavel comparacao o valor do item selecionado no listview
+            string comparacao = listView1.SelectedItems[0].Text;
             List<Filme> lista = dicionario_filmes[auxiliar];
             foreach (Filme l in lista)
             {
-                if (l == ToString(listView1.SelectedItems))
+                //verifica se o nome do objeto na lista é igual ao nome do item do listview
+                if (l.Nome == comparacao)
                 {
-                    l
+                    //teste
+                    // MessageBox.Show("" + l.Nome + " " + " " + l.Genero + " " + l.Data_Assistido + " " + l.Local, "", MessageBoxButtons.OK);
+                    
+                    //remove o item da lista e do listview
+                    lista.Remove(l);
+                    listView1.SelectedItems[0].Remove();
                 }
             }
 
         }
 
-        private Filme ToString(ListView.SelectedListViewItemCollection selectedListViewItemCollection)
-        {
-            throw new NotImplementedException();
-        }
-
+        //evento para editar um filme na lista
         private void editar_Click(object sender, EventArgs e)
         {
+            //atribui a variavel auxiliar o valor do indice do grupo selecionado no listview
             int auxiliar = listView1.Groups.IndexOf(listView1.SelectedItems[0].Group);
+            //atribui a variavel comparacao o valor do item selecionado no listview
+            string comparacao = listView1.SelectedItems[0].Text;
+            List<Filme> lista = dicionario_filmes[auxiliar];
+            foreach (Filme l in lista)
+            {
+                //verifica se o nome do objeto na lista é igual ao nome do item do listview
+                if (l.Nome == comparacao)
+                {
+                    //grava no objeto os valores dos textbox
+                    l.Nome = nome_filme.Text;
+                    l.Genero = lista_genero.Text;
+                    l.Data_Assistido = data.Text;
+                    l.Local = local.Text;
+                    //atualiza o list view com os novos valores
+                    listView1.SelectedItems[0].Remove();
+                    ListViewItem novo_item = new ListViewItem();
+                    novo_item.Text = l.Nome;
+                    novo_item.Group = listView1.Groups[lista_genero.SelectedIndex];
+                    novo_item.SubItems.Add(l.Data_Assistido);
+                    novo_item.SubItems.Add(l.Local);
+                    listView1.Items.Add(novo_item);
+                }
+            }
             
         }
     }
