@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Aventura", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("Comédia", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("Drama", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("Ação", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup5 = new System.Windows.Forms.ListViewGroup("Terror", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup6 = new System.Windows.Forms.ListViewGroup("Suspense", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup7 = new System.Windows.Forms.ListViewGroup("Infantil", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup8 = new System.Windows.Forms.ListViewGroup("Documetário", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup9 = new System.Windows.Forms.ListViewGroup("Romance", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup10 = new System.Windows.Forms.ListViewGroup("Ficção-Científica", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup11 = new System.Windows.Forms.ListViewGroup("Aventura", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup12 = new System.Windows.Forms.ListViewGroup("Comédia", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup13 = new System.Windows.Forms.ListViewGroup("Drama", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup14 = new System.Windows.Forms.ListViewGroup("Ação", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup15 = new System.Windows.Forms.ListViewGroup("Terror", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup16 = new System.Windows.Forms.ListViewGroup("Suspense", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup17 = new System.Windows.Forms.ListViewGroup("Infantil", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup18 = new System.Windows.Forms.ListViewGroup("Documetário", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup19 = new System.Windows.Forms.ListViewGroup("Romance", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup20 = new System.Windows.Forms.ListViewGroup("Ficção-Científica", System.Windows.Forms.HorizontalAlignment.Left);
             this.Cad_filme = new System.Windows.Forms.TabControl();
             this.cadastro_filme = new System.Windows.Forms.TabPage();
             this.remover = new System.Windows.Forms.Button();
@@ -56,8 +56,11 @@
             this.editar = new System.Windows.Forms.Button();
             this.cadastrar = new System.Windows.Forms.Button();
             this.Consulta_filme = new System.Windows.Forms.TabPage();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.Cad_filme.SuspendLayout();
             this.cadastro_filme.SuspendLayout();
+            this.Consulta_filme.SuspendLayout();
             this.SuspendLayout();
             // 
             // Cad_filme
@@ -100,7 +103,7 @@
             this.remover.Location = new System.Drawing.Point(726, 377);
             this.remover.Name = "remover";
             this.remover.Size = new System.Drawing.Size(75, 23);
-            this.remover.TabIndex = 11;
+            this.remover.TabIndex = 6;
             this.remover.Text = "Remover";
             this.remover.UseVisualStyleBackColor = true;
             this.remover.Click += new System.EventHandler(this.remover_Click);
@@ -112,44 +115,44 @@
             this.columnHeader1,
             this.columnHeader2});
             this.listView1.FullRowSelect = true;
-            listViewGroup1.Header = "Aventura";
-            listViewGroup1.Name = "aventura";
-            listViewGroup2.Header = "Comédia";
-            listViewGroup2.Name = "comedia";
-            listViewGroup3.Header = "Drama";
-            listViewGroup3.Name = "drama";
-            listViewGroup4.Header = "Ação";
-            listViewGroup4.Name = "acao";
-            listViewGroup5.Header = "Terror";
-            listViewGroup5.Name = "terror";
-            listViewGroup6.Header = "Suspense";
-            listViewGroup6.Name = "suspense";
-            listViewGroup7.Header = "Infantil";
-            listViewGroup7.Name = "infantil";
-            listViewGroup8.Header = "Documetário";
-            listViewGroup8.Name = "documetario";
-            listViewGroup9.Header = "Romance";
-            listViewGroup9.Name = "romance";
-            listViewGroup10.Header = "Ficção-Científica";
-            listViewGroup10.Name = "ficçao";
+            listViewGroup11.Header = "Aventura";
+            listViewGroup11.Name = "aventura";
+            listViewGroup12.Header = "Comédia";
+            listViewGroup12.Name = "comedia";
+            listViewGroup13.Header = "Drama";
+            listViewGroup13.Name = "drama";
+            listViewGroup14.Header = "Ação";
+            listViewGroup14.Name = "acao";
+            listViewGroup15.Header = "Terror";
+            listViewGroup15.Name = "terror";
+            listViewGroup16.Header = "Suspense";
+            listViewGroup16.Name = "suspense";
+            listViewGroup17.Header = "Infantil";
+            listViewGroup17.Name = "infantil";
+            listViewGroup18.Header = "Documetário";
+            listViewGroup18.Name = "documetario";
+            listViewGroup19.Header = "Romance";
+            listViewGroup19.Name = "romance";
+            listViewGroup20.Header = "Ficção-Científica";
+            listViewGroup20.Name = "ficçao";
             this.listView1.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1,
-            listViewGroup2,
-            listViewGroup3,
-            listViewGroup4,
-            listViewGroup5,
-            listViewGroup6,
-            listViewGroup7,
-            listViewGroup8,
-            listViewGroup9,
-            listViewGroup10});
+            listViewGroup11,
+            listViewGroup12,
+            listViewGroup13,
+            listViewGroup14,
+            listViewGroup15,
+            listViewGroup16,
+            listViewGroup17,
+            listViewGroup18,
+            listViewGroup19,
+            listViewGroup20});
             this.listView1.Location = new System.Drawing.Point(15, 105);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(785, 261);
-            this.listView1.TabIndex = 10;
+            this.listView1.TabIndex = 5;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
-            //this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            this.listView1.DoubleClick += new System.EventHandler(this.listView1_DoubleClick);
             // 
             // Nome
             // 
@@ -171,7 +174,7 @@
             this.local.Location = new System.Drawing.Point(415, 70);
             this.local.Name = "local";
             this.local.Size = new System.Drawing.Size(385, 20);
-            this.local.TabIndex = 9;
+            this.local.TabIndex = 3;
             // 
             // label4
             // 
@@ -188,7 +191,7 @@
             this.data.Location = new System.Drawing.Point(243, 70);
             this.data.Name = "data";
             this.data.Size = new System.Drawing.Size(122, 20);
-            this.data.TabIndex = 7;
+            this.data.TabIndex = 2;
             // 
             // label3
             // 
@@ -216,7 +219,7 @@
             this.lista_genero.Location = new System.Drawing.Point(9, 70);
             this.lista_genero.Name = "lista_genero";
             this.lista_genero.Size = new System.Drawing.Size(205, 21);
-            this.lista_genero.TabIndex = 5;
+            this.lista_genero.TabIndex = 1;
             // 
             // label2
             // 
@@ -232,7 +235,7 @@
             this.nome_filme.Location = new System.Drawing.Point(9, 31);
             this.nome_filme.Name = "nome_filme";
             this.nome_filme.Size = new System.Drawing.Size(792, 20);
-            this.nome_filme.TabIndex = 3;
+            this.nome_filme.TabIndex = 0;
             // 
             // label1
             // 
@@ -245,10 +248,11 @@
             // 
             // editar
             // 
+            this.editar.Enabled = false;
             this.editar.Location = new System.Drawing.Point(645, 377);
             this.editar.Name = "editar";
             this.editar.Size = new System.Drawing.Size(75, 23);
-            this.editar.TabIndex = 1;
+            this.editar.TabIndex = 7;
             this.editar.Text = "Editar";
             this.editar.UseVisualStyleBackColor = true;
             this.editar.Click += new System.EventHandler(this.editar_Click);
@@ -258,7 +262,7 @@
             this.cadastrar.Location = new System.Drawing.Point(564, 377);
             this.cadastrar.Name = "cadastrar";
             this.cadastrar.Size = new System.Drawing.Size(75, 23);
-            this.cadastrar.TabIndex = 0;
+            this.cadastrar.TabIndex = 4;
             this.cadastrar.Text = "Cadastrar";
             this.cadastrar.UseVisualStyleBackColor = true;
             this.cadastrar.Click += new System.EventHandler(this.cadastrar_Click);
@@ -266,6 +270,8 @@
             // Consulta_filme
             // 
             this.Consulta_filme.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Consulta_filme.Controls.Add(this.label5);
+            this.Consulta_filme.Controls.Add(this.textBox1);
             this.Consulta_filme.Location = new System.Drawing.Point(4, 22);
             this.Consulta_filme.Name = "Consulta_filme";
             this.Consulta_filme.Padding = new System.Windows.Forms.Padding(3);
@@ -273,6 +279,22 @@
             this.Consulta_filme.TabIndex = 1;
             this.Consulta_filme.Text = "Consulta de Filmes";
             this.Consulta_filme.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(24, 44);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(782, 20);
+            this.textBox1.TabIndex = 0;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(16, 12);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(35, 13);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "label5";
             // 
             // Form1
             // 
@@ -287,6 +309,8 @@
             this.Cad_filme.ResumeLayout(false);
             this.cadastro_filme.ResumeLayout(false);
             this.cadastro_filme.PerformLayout();
+            this.Consulta_filme.ResumeLayout(false);
+            this.Consulta_filme.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -311,6 +335,8 @@
         private System.Windows.Forms.ColumnHeader Nome;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

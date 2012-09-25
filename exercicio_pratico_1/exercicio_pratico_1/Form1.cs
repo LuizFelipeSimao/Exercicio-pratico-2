@@ -13,7 +13,6 @@ namespace exercicio_pratico_1
     {
         //Criando um vetor dinamico da Classe Filme
         Dictionary<int, List<Filme>> dicionario_filmes = new Dictionary<int, List<Filme>>();
-        Filme filme = new Filme();
 
         public Form1()
         {
@@ -26,8 +25,17 @@ namespace exercicio_pratico_1
             lista_genero.DataSource = listView1.Groups;
         }
 
+
+
+
+        //-------------Tab control para cadastro de filmes----------------------------//
+
+
+
+
         private void cadastrar_Click(object sender, EventArgs e)
         {
+            Filme filme = new Filme();
             //armazenando os valor digitados pelo usuario na classe
             filme.Nome = nome_filme.Text;
             filme.Genero = lista_genero.SelectedItem.ToString();
@@ -40,7 +48,7 @@ namespace exercicio_pratico_1
             }
             else
             {
-                //Criando um alista de classe de filme
+                //Criando uma lista de classe de filme
                 List<Filme> lista_filme = new List<Filme>();
                 //armazenando a classe na lista
                 lista_filme.Add(filme);
@@ -65,8 +73,9 @@ namespace exercicio_pratico_1
             //atribui a variavel comparacao o valor do item selecionado no listview
             string comparacao = listView1.SelectedItems[0].Text;
             List<Filme> lista = dicionario_filmes[auxiliar];
-            foreach (Filme l in lista)
+            for(int i = 0; i< lista.Count; ++i)
             {
+                Filme l = lista[i];
                 //verifica se o nome do objeto na lista é igual ao nome do item do listview
                 if (l.Nome == comparacao)
                 {
@@ -89,8 +98,9 @@ namespace exercicio_pratico_1
             //atribui a variavel comparacao o valor do item selecionado no listview
             string comparacao = listView1.SelectedItems[0].Text;
             List<Filme> lista = dicionario_filmes[auxiliar];
-            foreach (Filme l in lista)
+            for (int i = 0; i < lista.Count; ++i)
             {
+                Filme l = lista[i];
                 //verifica se o nome do objeto na lista é igual ao nome do item do listview
                 if (l.Nome == comparacao)
                 {
@@ -99,16 +109,47 @@ namespace exercicio_pratico_1
                     l.Genero = lista_genero.Text;
                     l.Data_Assistido = data.Text;
                     l.Local = local.Text;
+                    if (dicionario_filmes.ContainsKey(lista_genero.SelectedIndex))
+                    {
+                        List<Filme> listaexistente = dicionario_filmes[lista_genero.SelectedIndex];
+                        listaexistente.Add(l);
+                    }
+                    else
+                    {
+                        //Criando uma lista de classe de filme
+                        List<Filme> lista_filme = new List<Filme>();
+                        //armazenando a classe na lista
+                        lista_filme.Add(l);
+                        //armazenando a lista de filmes de um mesmo genero no dicionario
+                        dicionario_filmes.Add(lista_genero.SelectedIndex, lista_filme);
+                    }
+                    lista.Remove(l);
+                    
                     //atualiza o list view com os novos valores
-                    listView1.SelectedItems[0].Remove();
-                    ListViewItem novo_item = new ListViewItem();
-                    novo_item.Text = l.Nome;
-                    novo_item.Group = listView1.Groups[lista_genero.SelectedIndex];
-                    novo_item.SubItems.Add(l.Data_Assistido);
-                    novo_item.SubItems.Add(l.Local);
-                    listView1.Items.Add(novo_item);
+                    ListViewItem lv_editando = listView1.SelectedItems[0];
+                    lv_editando.Group = listView1.Groups[lista_genero.SelectedIndex];
+                    lv_editando.SubItems[0].Text = l.Nome;
+                    lv_editando.SubItems[1].Text = l.Data_Assistido;
+                    lv_editando.SubItems[2].Text = l.Local;
                 }
-            }   
+            }
+            cadastrar.Enabled = true;
+            remover.Enabled = true;
+            editar.Enabled = false;
+            listView1.Enabled = true;
         }
+
+        private void listView1_DoubleClick(object sender, EventArgs e)
+        {
+            cadastrar.Enabled = false;
+            remover.Enabled = false;
+            editar.Enabled = true;
+            listView1.Enabled = false;
+        }
+
+
+
+        //------------------------tabcontrol para pesquisa-------------------------//
+
     }
 }
