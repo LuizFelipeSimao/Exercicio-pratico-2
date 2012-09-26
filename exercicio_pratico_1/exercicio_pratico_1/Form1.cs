@@ -13,7 +13,8 @@ namespace exercicio_pratico_1
     {
         //Criando um vetor dinamico da Classe Filme
         Dictionary<int, List<Filme>> dicionario_filmes = new Dictionary<int, List<Filme>>();
-
+        List<Filme> lista_pesquisa = new List<Filme>();
+       
         public Form1()
         {
             InitializeComponent();
@@ -23,6 +24,7 @@ namespace exercicio_pratico_1
         {
             //Ligando os Grupos do ListVIew aos valores do Combobox
             lista_genero.DataSource = listView1.Groups;
+            pesq_categoria.DataSource = listView2.Groups;
         }
 
 
@@ -148,8 +150,84 @@ namespace exercicio_pratico_1
         }
 
 
-
         //------------------------tabcontrol para pesquisa-------------------------//
 
-    }
+
+        //botão de pesquisa
+        private void pesquisa_Click(object sender, EventArgs e)
+        {
+            if (ck_box_categoria.Checked == true)
+            {
+                int auxiliar = pesq_categoria.SelectedIndex;
+                List<Filme> lista = dicionario_filmes[auxiliar];
+                lista_pesquisa.AddRange(lista);
+            }
+            else
+            {
+                foreach (List<Filme> l in dicionario_filmes.Values)
+                    lista_pesquisa.AddRange(l);
+                //for (int i = 0; i < dicionario_filmes.Count; ++i)
+                //{
+                //    List<Filme> transferencia = dicionario_filmes[i];
+                //    for (int j = 0; j < transferencia.Count; ++j)
+                //    {
+                //        Filme obj_transferencia = transferencia[j];
+                //        lista_pesquisa.Add(obj_transferencia);
+                //    }
+                //}
+            }
+
+            for (int i = 0; i < lista_pesquisa.Count; ++i)
+                {
+                    Filme obj_pesquisa = lista_pesquisa[i];
+                    if ((ck_box_nome.Checked == true) && (obj_pesquisa.Nome != pesq_nome.Text))
+                    {
+                        lista_pesquisa.Remove(obj_pesquisa);
+
+                    }
+                    if((ck_box_data.Checked == true) && ((obj_pesquisa.Data_Assistido.CompareTo(data_inicial.Text) < 0) && (obj_pesquisa.Data_Assistido.CompareTo(data_final.Text) > 0)))
+                    {
+                        lista_pesquisa.Remove(obj_pesquisa);
+                    }
+                    if((ck_box_local.Checked == true) && (obj_pesquisa.Local != pesq_local.Text))
+                    {
+                        lista_pesquisa.Remove(obj_pesquisa);
+                    }
+                }
+            foreach(Filme obj_apresentacao in lista_pesquisa)
+            {  
+                ListViewItem listview_pesquisa = new ListViewItem();
+                listview_pesquisa.Group = listView2.Groups[obj_apresentacao.Genero];
+                listview_pesquisa.Text = obj_apresentacao.Nome;
+                listview_pesquisa.SubItems.Add(obj_apresentacao.Data_Assistido);
+                listview_pesquisa.SubItems.Add(obj_apresentacao.Local);
+                listView2.Items.Add(listview_pesquisa);
+            }
+         }
+
+        private void limpar_pesquisa_Click(object sender, EventArgs e)
+        {
+            ck_box_categoria.Checked = false;
+            ck_box_data.Checked = false;
+            ck_box_local.Checked = false;
+            ck_box_nome.Checked = false;
+            listView2.Items.Clear();
+            pesq_nome.Clear();
+            pesq_local.Clear();
+            data_final.Text = null;
+            data_inicial.Text = null;
+            pesq_categoria.SelectedItem = null;
+        }
+     }
 }
+
+
+
+      
+
+
+
+        
+        
+        
+   

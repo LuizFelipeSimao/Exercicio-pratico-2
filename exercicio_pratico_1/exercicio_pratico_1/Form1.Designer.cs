@@ -28,6 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Aventura", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("Comédia", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("Drama", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("Ação", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup5 = new System.Windows.Forms.ListViewGroup("Terror", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup6 = new System.Windows.Forms.ListViewGroup("Suspense", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup7 = new System.Windows.Forms.ListViewGroup("Infantil", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup8 = new System.Windows.Forms.ListViewGroup("Documetário", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup9 = new System.Windows.Forms.ListViewGroup("Romance", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup10 = new System.Windows.Forms.ListViewGroup("Ficção-Científica", System.Windows.Forms.HorizontalAlignment.Left);
             System.Windows.Forms.ListViewGroup listViewGroup11 = new System.Windows.Forms.ListViewGroup("Aventura", System.Windows.Forms.HorizontalAlignment.Left);
             System.Windows.Forms.ListViewGroup listViewGroup12 = new System.Windows.Forms.ListViewGroup("Comédia", System.Windows.Forms.HorizontalAlignment.Left);
             System.Windows.Forms.ListViewGroup listViewGroup13 = new System.Windows.Forms.ListViewGroup("Drama", System.Windows.Forms.HorizontalAlignment.Left);
@@ -56,8 +66,22 @@
             this.editar = new System.Windows.Forms.Button();
             this.cadastrar = new System.Windows.Forms.Button();
             this.Consulta_filme = new System.Windows.Forms.TabPage();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.listView2 = new System.Windows.Forms.ListView();
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.pesquisa = new System.Windows.Forms.Button();
+            this.pesq_local = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.data_final = new System.Windows.Forms.DateTimePicker();
+            this.data_inicial = new System.Windows.Forms.DateTimePicker();
+            this.pesq_categoria = new System.Windows.Forms.ComboBox();
+            this.ck_box_local = new System.Windows.Forms.CheckBox();
+            this.ck_box_data = new System.Windows.Forms.CheckBox();
+            this.ck_box_categoria = new System.Windows.Forms.CheckBox();
+            this.ck_box_nome = new System.Windows.Forms.CheckBox();
+            this.pesq_nome = new System.Windows.Forms.TextBox();
+            this.limpar_pesquisa = new System.Windows.Forms.Button();
             this.Cad_filme.SuspendLayout();
             this.cadastro_filme.SuspendLayout();
             this.Consulta_filme.SuspendLayout();
@@ -115,37 +139,37 @@
             this.columnHeader1,
             this.columnHeader2});
             this.listView1.FullRowSelect = true;
-            listViewGroup11.Header = "Aventura";
-            listViewGroup11.Name = "aventura";
-            listViewGroup12.Header = "Comédia";
-            listViewGroup12.Name = "comedia";
-            listViewGroup13.Header = "Drama";
-            listViewGroup13.Name = "drama";
-            listViewGroup14.Header = "Ação";
-            listViewGroup14.Name = "acao";
-            listViewGroup15.Header = "Terror";
-            listViewGroup15.Name = "terror";
-            listViewGroup16.Header = "Suspense";
-            listViewGroup16.Name = "suspense";
-            listViewGroup17.Header = "Infantil";
-            listViewGroup17.Name = "infantil";
-            listViewGroup18.Header = "Documetário";
-            listViewGroup18.Name = "documetario";
-            listViewGroup19.Header = "Romance";
-            listViewGroup19.Name = "romance";
-            listViewGroup20.Header = "Ficção-Científica";
-            listViewGroup20.Name = "ficçao";
+            listViewGroup1.Header = "Aventura";
+            listViewGroup1.Name = "aventura";
+            listViewGroup2.Header = "Comédia";
+            listViewGroup2.Name = "comedia";
+            listViewGroup3.Header = "Drama";
+            listViewGroup3.Name = "drama";
+            listViewGroup4.Header = "Ação";
+            listViewGroup4.Name = "acao";
+            listViewGroup5.Header = "Terror";
+            listViewGroup5.Name = "terror";
+            listViewGroup6.Header = "Suspense";
+            listViewGroup6.Name = "suspense";
+            listViewGroup7.Header = "Infantil";
+            listViewGroup7.Name = "infantil";
+            listViewGroup8.Header = "Documetário";
+            listViewGroup8.Name = "documetario";
+            listViewGroup9.Header = "Romance";
+            listViewGroup9.Name = "romance";
+            listViewGroup10.Header = "Ficção-Científica";
+            listViewGroup10.Name = "ficçao";
             this.listView1.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup11,
-            listViewGroup12,
-            listViewGroup13,
-            listViewGroup14,
-            listViewGroup15,
-            listViewGroup16,
-            listViewGroup17,
-            listViewGroup18,
-            listViewGroup19,
-            listViewGroup20});
+            listViewGroup1,
+            listViewGroup2,
+            listViewGroup3,
+            listViewGroup4,
+            listViewGroup5,
+            listViewGroup6,
+            listViewGroup7,
+            listViewGroup8,
+            listViewGroup9,
+            listViewGroup10});
             this.listView1.Location = new System.Drawing.Point(15, 105);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(785, 261);
@@ -270,8 +294,19 @@
             // Consulta_filme
             // 
             this.Consulta_filme.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Consulta_filme.Controls.Add(this.limpar_pesquisa);
+            this.Consulta_filme.Controls.Add(this.listView2);
+            this.Consulta_filme.Controls.Add(this.pesquisa);
+            this.Consulta_filme.Controls.Add(this.pesq_local);
             this.Consulta_filme.Controls.Add(this.label5);
-            this.Consulta_filme.Controls.Add(this.textBox1);
+            this.Consulta_filme.Controls.Add(this.data_final);
+            this.Consulta_filme.Controls.Add(this.data_inicial);
+            this.Consulta_filme.Controls.Add(this.pesq_categoria);
+            this.Consulta_filme.Controls.Add(this.ck_box_local);
+            this.Consulta_filme.Controls.Add(this.ck_box_data);
+            this.Consulta_filme.Controls.Add(this.ck_box_categoria);
+            this.Consulta_filme.Controls.Add(this.ck_box_nome);
+            this.Consulta_filme.Controls.Add(this.pesq_nome);
             this.Consulta_filme.Location = new System.Drawing.Point(4, 22);
             this.Consulta_filme.Name = "Consulta_filme";
             this.Consulta_filme.Padding = new System.Windows.Forms.Padding(3);
@@ -280,21 +315,172 @@
             this.Consulta_filme.Text = "Consulta de Filmes";
             this.Consulta_filme.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // listView2
             // 
-            this.textBox1.Location = new System.Drawing.Point(24, 44);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(782, 20);
-            this.textBox1.TabIndex = 0;
+            this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5});
+            this.listView2.FullRowSelect = true;
+            listViewGroup11.Header = "Aventura";
+            listViewGroup11.Name = "aventura";
+            listViewGroup12.Header = "Comédia";
+            listViewGroup12.Name = "comedia";
+            listViewGroup13.Header = "Drama";
+            listViewGroup13.Name = "drama";
+            listViewGroup14.Header = "Ação";
+            listViewGroup14.Name = "acao";
+            listViewGroup15.Header = "Terror";
+            listViewGroup15.Name = "terror";
+            listViewGroup16.Header = "Suspense";
+            listViewGroup16.Name = "suspense";
+            listViewGroup17.Header = "Infantil";
+            listViewGroup17.Name = "infantil";
+            listViewGroup18.Header = "Documetário";
+            listViewGroup18.Name = "documetario";
+            listViewGroup19.Header = "Romance";
+            listViewGroup19.Name = "romance";
+            listViewGroup20.Header = "Ficção-Científica";
+            listViewGroup20.Name = "ficçao";
+            this.listView2.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
+            listViewGroup11,
+            listViewGroup12,
+            listViewGroup13,
+            listViewGroup14,
+            listViewGroup15,
+            listViewGroup16,
+            listViewGroup17,
+            listViewGroup18,
+            listViewGroup19,
+            listViewGroup20});
+            this.listView2.Location = new System.Drawing.Point(32, 139);
+            this.listView2.Name = "listView2";
+            this.listView2.Size = new System.Drawing.Size(785, 261);
+            this.listView2.TabIndex = 11;
+            this.listView2.UseCompatibleStateImageBehavior = false;
+            this.listView2.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Nome do Filme";
+            this.columnHeader3.Width = 476;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Data";
+            this.columnHeader4.Width = 90;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Local";
+            this.columnHeader5.Width = 213;
+            // 
+            // pesquisa
+            // 
+            this.pesquisa.Location = new System.Drawing.Point(569, 39);
+            this.pesquisa.Name = "pesquisa";
+            this.pesquisa.Size = new System.Drawing.Size(75, 23);
+            this.pesquisa.TabIndex = 10;
+            this.pesquisa.Text = "Pesquisa";
+            this.pesquisa.UseVisualStyleBackColor = true;
+            this.pesquisa.Click += new System.EventHandler(this.pesquisa_Click);
+            // 
+            // pesq_local
+            // 
+            this.pesq_local.Location = new System.Drawing.Point(97, 110);
+            this.pesq_local.Name = "pesq_local";
+            this.pesq_local.Size = new System.Drawing.Size(320, 20);
+            this.pesq_local.TabIndex = 9;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(16, 12);
+            this.label5.Location = new System.Drawing.Point(209, 88);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "label5";
+            this.label5.Size = new System.Drawing.Size(22, 13);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "até";
+            // 
+            // data_final
+            // 
+            this.data_final.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.data_final.Location = new System.Drawing.Point(237, 85);
+            this.data_final.Name = "data_final";
+            this.data_final.Size = new System.Drawing.Size(112, 20);
+            this.data_final.TabIndex = 7;
+            // 
+            // data_inicial
+            // 
+            this.data_inicial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.data_inicial.Location = new System.Drawing.Point(91, 85);
+            this.data_inicial.Name = "data_inicial";
+            this.data_inicial.Size = new System.Drawing.Size(112, 20);
+            this.data_inicial.TabIndex = 6;
+            // 
+            // pesq_categoria
+            // 
+            this.pesq_categoria.FormattingEnabled = true;
+            this.pesq_categoria.Location = new System.Drawing.Point(113, 60);
+            this.pesq_categoria.Name = "pesq_categoria";
+            this.pesq_categoria.Size = new System.Drawing.Size(258, 21);
+            this.pesq_categoria.TabIndex = 5;
+            // 
+            // ck_box_local
+            // 
+            this.ck_box_local.AutoSize = true;
+            this.ck_box_local.Location = new System.Drawing.Point(36, 112);
+            this.ck_box_local.Name = "ck_box_local";
+            this.ck_box_local.Size = new System.Drawing.Size(52, 17);
+            this.ck_box_local.TabIndex = 4;
+            this.ck_box_local.Text = "Local";
+            this.ck_box_local.UseVisualStyleBackColor = true;
+            // 
+            // ck_box_data
+            // 
+            this.ck_box_data.AutoSize = true;
+            this.ck_box_data.Location = new System.Drawing.Point(36, 87);
+            this.ck_box_data.Name = "ck_box_data";
+            this.ck_box_data.Size = new System.Drawing.Size(49, 17);
+            this.ck_box_data.TabIndex = 3;
+            this.ck_box_data.Text = "Data";
+            this.ck_box_data.UseVisualStyleBackColor = true;
+            // 
+            // ck_box_categoria
+            // 
+            this.ck_box_categoria.AutoSize = true;
+            this.ck_box_categoria.Location = new System.Drawing.Point(36, 62);
+            this.ck_box_categoria.Name = "ck_box_categoria";
+            this.ck_box_categoria.Size = new System.Drawing.Size(71, 17);
+            this.ck_box_categoria.TabIndex = 2;
+            this.ck_box_categoria.Text = "Categoria";
+            this.ck_box_categoria.UseVisualStyleBackColor = true;
+            // 
+            // ck_box_nome
+            // 
+            this.ck_box_nome.AutoSize = true;
+            this.ck_box_nome.Location = new System.Drawing.Point(36, 39);
+            this.ck_box_nome.Name = "ck_box_nome";
+            this.ck_box_nome.Size = new System.Drawing.Size(54, 17);
+            this.ck_box_nome.TabIndex = 1;
+            this.ck_box_nome.Text = "Nome";
+            this.ck_box_nome.UseVisualStyleBackColor = true;
+            // 
+            // pesq_nome
+            // 
+            this.pesq_nome.Location = new System.Drawing.Point(96, 36);
+            this.pesq_nome.Name = "pesq_nome";
+            this.pesq_nome.Size = new System.Drawing.Size(321, 20);
+            this.pesq_nome.TabIndex = 0;
+            // 
+            // limpar_pesquisa
+            // 
+            this.limpar_pesquisa.Location = new System.Drawing.Point(677, 39);
+            this.limpar_pesquisa.Name = "limpar_pesquisa";
+            this.limpar_pesquisa.Size = new System.Drawing.Size(75, 23);
+            this.limpar_pesquisa.TabIndex = 12;
+            this.limpar_pesquisa.Text = "Limpar";
+            this.limpar_pesquisa.UseVisualStyleBackColor = true;
+            this.limpar_pesquisa.Click += new System.EventHandler(this.limpar_pesquisa_Click);
             // 
             // Form1
             // 
@@ -335,8 +521,22 @@
         private System.Windows.Forms.ColumnHeader Nome;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.TextBox pesq_nome;
+        private System.Windows.Forms.CheckBox ck_box_local;
+        private System.Windows.Forms.CheckBox ck_box_data;
+        private System.Windows.Forms.CheckBox ck_box_categoria;
+        private System.Windows.Forms.CheckBox ck_box_nome;
+        private System.Windows.Forms.ComboBox pesq_categoria;
+        private System.Windows.Forms.DateTimePicker data_final;
+        private System.Windows.Forms.DateTimePicker data_inicial;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button pesquisa;
+        private System.Windows.Forms.TextBox pesq_local;
+        private System.Windows.Forms.ListView listView2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.Button limpar_pesquisa;
     }
 }
 
