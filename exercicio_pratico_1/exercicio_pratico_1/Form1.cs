@@ -41,7 +41,7 @@ namespace exercicio_pratico_1
             //armazenando os valor digitados pelo usuario na classe
             filme.Nome = nome_filme.Text;
             filme.Genero = lista_genero.SelectedItem.ToString();
-            filme.Data_Assistido = data.Text;
+            filme.Data_Assistido = data.Value;
             filme.Local = local.Text;
             if (dicionario_filmes.ContainsKey(lista_genero.SelectedIndex))
             {
@@ -61,7 +61,7 @@ namespace exercicio_pratico_1
             ListViewItem novo_item = new ListViewItem();
             novo_item.Text = filme.Nome;
             novo_item.Group = listView1.Groups[lista_genero.SelectedIndex];
-            novo_item.SubItems.Add(filme.Data_Assistido);
+            novo_item.SubItems.Add(filme.Data_Assistido.ToShortDateString());
             novo_item.SubItems.Add(filme.Local);
             //adicionando o item no listview de apresentação
             listView1.Items.Add(novo_item);
@@ -109,7 +109,7 @@ namespace exercicio_pratico_1
                     //grava no objeto os valores dos textbox
                     l.Nome = nome_filme.Text;
                     l.Genero = lista_genero.Text;
-                    l.Data_Assistido = data.Text;
+                    l.Data_Assistido = data.Value;
                     l.Local = local.Text;
                     if (dicionario_filmes.ContainsKey(lista_genero.SelectedIndex))
                     {
@@ -131,7 +131,7 @@ namespace exercicio_pratico_1
                     ListViewItem lv_editando = listView1.SelectedItems[0];
                     lv_editando.Group = listView1.Groups[lista_genero.SelectedIndex];
                     lv_editando.SubItems[0].Text = l.Nome;
-                    lv_editando.SubItems[1].Text = l.Data_Assistido;
+                    lv_editando.SubItems[1].Text = l.Data_Assistido.ToShortDateString();
                     lv_editando.SubItems[2].Text = l.Local;
                 }
             }
@@ -158,40 +158,46 @@ namespace exercicio_pratico_1
         {
             if (ck_box_categoria.Checked == true)
             {
-                int auxiliar = pesq_categoria.SelectedIndex;
-                List<Filme> lista = dicionario_filmes[auxiliar];
-                lista_pesquisa.AddRange(lista);
+                if (dicionario_filmes.ContainsKey(pesq_categoria.SelectedIndex))
+                {
+                    int auxiliar = pesq_categoria.SelectedIndex;
+                    List<Filme> lista = dicionario_filmes[auxiliar];
+                    lista_pesquisa.AddRange(lista);
+                }
+                else
+                {
+                    MessageBox.Show("Não existe filme para tal genero", "Atenção", MessageBoxButtons.OK);
+                }
             }
             else
             {
                 foreach (List<Filme> l in dicionario_filmes.Values)
                     lista_pesquisa.AddRange(l);
-                //for (int i = 0; i < dicionario_filmes.Count; ++i)
-                //{
-                //    List<Filme> transferencia = dicionario_filmes[i];
-                //    for (int j = 0; j < transferencia.Count; ++j)
-                //    {
-                //        Filme obj_transferencia = transferencia[j];
-                //        lista_pesquisa.Add(obj_transferencia);
-                //    }
-                //}
             }
-
+            
+            if (lista_pesquisa.Count == 0)
+            {
+                MessageBox.Show("Não foi cadastrado nenhum filme", "Atenção", MessageBoxButtons.OK);
+            }
+            else
+            {
             for (int i = 0; i < lista_pesquisa.Count; ++i)
-                {
-                    Filme obj_pesquisa = lista_pesquisa[i];
-                    if ((ck_box_nome.Checked == true) && (obj_pesquisa.Nome != pesq_nome.Text))
-                    {
-                        lista_pesquisa.Remove(obj_pesquisa);
+                {     
+                        Filme obj_pesquisa = lista_pesquisa[i];
+                        if ((ck_box_nome.Checked == true) && (obj_pesquisa.Nome != pesq_nome.Text))
+                        {
+                            lista_pesquisa.Remove(obj_pesquisa);
+                        }
 
-                    }
-                    if((ck_box_data.Checked == true) && ((obj_pesquisa.Data_Assistido.CompareTo(data_inicial.Text) < 0) && (obj_pesquisa.Data_Assistido.CompareTo(data_final.Text) > 0)))
-                    {
-                        lista_pesquisa.Remove(obj_pesquisa);
-                    }
-                    if((ck_box_local.Checked == true) && (obj_pesquisa.Local != pesq_local.Text))
-                    {
-                        lista_pesquisa.Remove(obj_pesquisa);
+                        if ((ck_box_data.Checked == true) && ((obj_pesquisa.Data_Assistido.Date > data_inicial.Value) && (obj_pesquisa.Data_Assistido.Date > data_final.Value)))
+                        {
+                            lista_pesquisa.Remove(obj_pesquisa);
+                        }
+
+                        if ((ck_box_local.Checked == true) && (obj_pesquisa.Local != pesq_local.Text))
+                        {
+                            lista_pesquisa.Remove(obj_pesquisa);
+                        }
                     }
                 }
             foreach(Filme obj_apresentacao in lista_pesquisa)
@@ -199,7 +205,7 @@ namespace exercicio_pratico_1
                 ListViewItem listview_pesquisa = new ListViewItem();
                 listview_pesquisa.Group = listView2.Groups[obj_apresentacao.Genero];
                 listview_pesquisa.Text = obj_apresentacao.Nome;
-                listview_pesquisa.SubItems.Add(obj_apresentacao.Data_Assistido);
+                listview_pesquisa.SubItems.Add(obj_apresentacao.Data_Assistido.ToShortDateString());
                 listview_pesquisa.SubItems.Add(obj_apresentacao.Local);
                 listView2.Items.Add(listview_pesquisa);
             }
@@ -217,6 +223,7 @@ namespace exercicio_pratico_1
             data_final.Text = null;
             data_inicial.Text = null;
             pesq_categoria.SelectedItem = null;
+            lista_pesquisa.Clear();
         }
      }
 }

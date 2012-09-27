@@ -66,6 +66,7 @@
             this.editar = new System.Windows.Forms.Button();
             this.cadastrar = new System.Windows.Forms.Button();
             this.Consulta_filme = new System.Windows.Forms.TabPage();
+            this.limpar_pesquisa = new System.Windows.Forms.Button();
             this.listView2 = new System.Windows.Forms.ListView();
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -81,7 +82,6 @@
             this.ck_box_categoria = new System.Windows.Forms.CheckBox();
             this.ck_box_nome = new System.Windows.Forms.CheckBox();
             this.pesq_nome = new System.Windows.Forms.TextBox();
-            this.limpar_pesquisa = new System.Windows.Forms.Button();
             this.Cad_filme.SuspendLayout();
             this.cadastro_filme.SuspendLayout();
             this.Consulta_filme.SuspendLayout();
@@ -140,25 +140,25 @@
             this.columnHeader2});
             this.listView1.FullRowSelect = true;
             listViewGroup1.Header = "Aventura";
-            listViewGroup1.Name = "aventura";
+            listViewGroup1.Name = "Aventura";
             listViewGroup2.Header = "Comédia";
-            listViewGroup2.Name = "comedia";
+            listViewGroup2.Name = "Comédia";
             listViewGroup3.Header = "Drama";
-            listViewGroup3.Name = "drama";
+            listViewGroup3.Name = "Drama";
             listViewGroup4.Header = "Ação";
-            listViewGroup4.Name = "acao";
+            listViewGroup4.Name = "Ação";
             listViewGroup5.Header = "Terror";
-            listViewGroup5.Name = "terror";
+            listViewGroup5.Name = "Terror";
             listViewGroup6.Header = "Suspense";
-            listViewGroup6.Name = "suspense";
+            listViewGroup6.Name = "Suspense";
             listViewGroup7.Header = "Infantil";
-            listViewGroup7.Name = "infantil";
+            listViewGroup7.Name = "Infantil";
             listViewGroup8.Header = "Documetário";
-            listViewGroup8.Name = "documetario";
+            listViewGroup8.Name = "Documetário";
             listViewGroup9.Header = "Romance";
-            listViewGroup9.Name = "romance";
+            listViewGroup9.Name = "Romance";
             listViewGroup10.Header = "Ficção-Científica";
-            listViewGroup10.Name = "ficçao";
+            listViewGroup10.Name = "Ficção-Científica";
             this.listView1.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
             listViewGroup1,
             listViewGroup2,
@@ -315,6 +315,16 @@
             this.Consulta_filme.Text = "Consulta de Filmes";
             this.Consulta_filme.UseVisualStyleBackColor = true;
             // 
+            // limpar_pesquisa
+            // 
+            this.limpar_pesquisa.Location = new System.Drawing.Point(677, 39);
+            this.limpar_pesquisa.Name = "limpar_pesquisa";
+            this.limpar_pesquisa.Size = new System.Drawing.Size(75, 23);
+            this.limpar_pesquisa.TabIndex = 12;
+            this.limpar_pesquisa.Text = "Limpar";
+            this.limpar_pesquisa.UseVisualStyleBackColor = true;
+            this.limpar_pesquisa.Click += new System.EventHandler(this.limpar_pesquisa_Click);
+            // 
             // listView2
             // 
             this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -323,25 +333,25 @@
             this.columnHeader5});
             this.listView2.FullRowSelect = true;
             listViewGroup11.Header = "Aventura";
-            listViewGroup11.Name = "aventura";
+            listViewGroup11.Name = "Aventura";
             listViewGroup12.Header = "Comédia";
-            listViewGroup12.Name = "comedia";
+            listViewGroup12.Name = "Comédia";
             listViewGroup13.Header = "Drama";
-            listViewGroup13.Name = "drama";
+            listViewGroup13.Name = "Drama";
             listViewGroup14.Header = "Ação";
-            listViewGroup14.Name = "acao";
+            listViewGroup14.Name = "Ação";
             listViewGroup15.Header = "Terror";
-            listViewGroup15.Name = "terror";
+            listViewGroup15.Name = "Terror";
             listViewGroup16.Header = "Suspense";
-            listViewGroup16.Name = "suspense";
+            listViewGroup16.Name = "Suspense";
             listViewGroup17.Header = "Infantil";
-            listViewGroup17.Name = "infantil";
+            listViewGroup17.Name = "Infantil";
             listViewGroup18.Header = "Documetário";
-            listViewGroup18.Name = "documetario";
+            listViewGroup18.Name = "Documetário";
             listViewGroup19.Header = "Romance";
-            listViewGroup19.Name = "romance";
+            listViewGroup19.Name = "Romance";
             listViewGroup20.Header = "Ficção-Científica";
-            listViewGroup20.Name = "ficçao";
+            listViewGroup20.Name = "Ficção-Científica";
             this.listView2.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
             listViewGroup11,
             listViewGroup12,
@@ -471,16 +481,6 @@
             this.pesq_nome.Name = "pesq_nome";
             this.pesq_nome.Size = new System.Drawing.Size(321, 20);
             this.pesq_nome.TabIndex = 0;
-            // 
-            // limpar_pesquisa
-            // 
-            this.limpar_pesquisa.Location = new System.Drawing.Point(677, 39);
-            this.limpar_pesquisa.Name = "limpar_pesquisa";
-            this.limpar_pesquisa.Size = new System.Drawing.Size(75, 23);
-            this.limpar_pesquisa.TabIndex = 12;
-            this.limpar_pesquisa.Text = "Limpar";
-            this.limpar_pesquisa.UseVisualStyleBackColor = true;
-            this.limpar_pesquisa.Click += new System.EventHandler(this.limpar_pesquisa_Click);
             // 
             // Form1
             // 

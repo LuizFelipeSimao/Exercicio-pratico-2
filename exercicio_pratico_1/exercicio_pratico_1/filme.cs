@@ -10,7 +10,7 @@ namespace exercicio_pratico_1
         {
             public string Nome;
             public string Genero;
-            public string Data_Assistido;
+            public DateTime Data_Assistido;
             public string Local;
             //construtor da classe Filmes - inicia todas os atributos vazios
             public Filme()
