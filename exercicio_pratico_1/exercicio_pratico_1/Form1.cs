@@ -183,6 +183,31 @@ namespace exercicio_pratico_1
         cadastro e remoção, impedindo que o usuario cometa algum erro durante a edição*/
         private void listView1_DoubleClick(object sender, EventArgs e)
         {
+              //atribui a variavel auxiliar o valor do indice do grupo selecionado no listview
+            int auxiliar = listView1.Groups.IndexOf(listView1.SelectedItems[0].Group);
+            
+            //atribui a variavel comparacao o valor do item selecionado no listview
+            string comparacao = listView1.SelectedItems[0].Text;
+            
+            //Criando uma referencia à uma lista no dicionario
+            List<Filme> lista = dicionario_filmes[auxiliar];
+
+            /*FOR utilizado para selecionar o item na lista e depois passar seus atributos para os combobox e textbox*/
+            for (int i = 0; i < lista.Count; ++i)
+            {
+                //cria uma referencia ao objeto Filme na lista
+                Filme l = lista[i];
+
+                //verifica se o nome do objeto na lista é igual ao nome do item do listview
+                if (l.Nome == comparacao)
+                {
+                    //passagem dos valores do objeto para os textbox e combobox
+                    nome_filme.Text = l.Nome;
+                    data.Value = l.Data_Assistido;
+                    lista_genero.Text = l.Genero;
+                    local.Text = l.Local;
+                }
+            }
             cadastrar.Enabled = false;
             remover.Enabled = false;
             editar.Enabled = true;
