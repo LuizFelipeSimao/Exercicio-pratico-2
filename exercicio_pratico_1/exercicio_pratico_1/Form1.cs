@@ -312,5 +312,11 @@ namespace exercicio_pratico_1
         {
             botao_limpar();
         }
+
+        private void ck_box_data_CheckedChanged(object sender, EventArgs e)
+        {
+            label5.Visible = true;
+            data_final.Visible = true;
+        }
      }
 }
