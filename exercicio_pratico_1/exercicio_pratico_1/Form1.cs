@@ -22,6 +22,7 @@ namespace exercicio_pratico_1
             InitializeComponent();
         }
 
+        #region Função Limpar
         //ESSE METODO SERÁ UTILIZADO PARA LIMPAR TODOS OS COMBOBOX, CHECKBOX, TEXTBOX E LISTVIEW DO TABCONTROL 2
         public void botao_limpar()
         {
@@ -39,22 +40,23 @@ namespace exercicio_pratico_1
             pesquisa.Enabled = true;
             limpar_pesquisa.Enabled = false;
         }
+        #endregion
 
-
+        #region ligando ListView
         private void Form1_Load(object sender, EventArgs e)
         {
             //Ligando os Grupos do ListVIew aos valores do Combobox
             lista_genero.DataSource = listView1.Groups;
             pesq_categoria.DataSource = listView2.Groups;
         }
-
+        #endregion
 
 
 
 
 
         //-------------Tab control para cadastro de filmes----------------------------//
-
+        #region cadastrar
         private void cadastrar_Click(object sender, EventArgs e)
         {
             Filme filme = new Filme();
@@ -86,7 +88,9 @@ namespace exercicio_pratico_1
             novo_item.SubItems.Add(filme.Local);
             listView1.Items.Add(novo_item);
         }
+        #endregion
 
+        #region remover
         //evento para remover filmes da lista
         private void remover_Click(object sender, EventArgs e)
         {
@@ -115,7 +119,9 @@ namespace exercicio_pratico_1
             }
 
         }
+        #endregion
 
+        #region editar
         //evento para editar um filme na lista
         private void editar_Click(object sender, EventArgs e)
         {
@@ -168,7 +174,7 @@ namespace exercicio_pratico_1
                     lv_editando.SubItems[2].Text = l.Local;
                 }
             }
-
+      
             /* ao dar dois cliques em um item do listview os botões de cadastro, listview e de remoção são travados,
             agora esses botões são liberados para que o usuario possa continuar trabalhando, 
             o botão de edição é travado novamente para que nada possa ser alterado por engano*/
@@ -177,8 +183,9 @@ namespace exercicio_pratico_1
             editar.Enabled = false;
             listView1.Enabled = true;
         }
+        #endregion
 
-
+        #region click ListView
         /*evento de dois cliques no listview é utilizado para travar a seleção do listview, travar a utilização dos botões de
         cadastro e remoção, impedindo que o usuario cometa algum erro durante a edição*/
         private void listView1_DoubleClick(object sender, EventArgs e)
@@ -213,12 +220,13 @@ namespace exercicio_pratico_1
             editar.Enabled = true;
             listView1.Enabled = false;
         }
-
+        #endregion
 
 
 
         //------------------------tabcontrol para pesquisa-------------------------//
-     
+
+        #region Pesquisa
         /*quando o botão de pesquisa é disparado, a lista de pesquisa é atribuida com os valores dos filmes armazenados no dicionario
         para agilizar a pesquisa, caso o checkbox de genero esteja marcado, a lista de pesquisa será atribuida com os valores
          da lista contida na posição do dicionario equivalente ao genero selecionado*/
@@ -305,8 +313,9 @@ namespace exercicio_pratico_1
             pesquisa.Enabled = false;
             limpar_pesquisa.Enabled = true;
          }
+        #endregion
 
-
+        #region Limpar
         //esse evento limpa dos os item
         private void limpar_pesquisa_Click(object sender, EventArgs e)
         {
@@ -318,5 +327,8 @@ namespace exercicio_pratico_1
             label5.Visible = true;
             data_final.Visible = true;
         }
-     }
+        #endregion
+
+
+    }
 }

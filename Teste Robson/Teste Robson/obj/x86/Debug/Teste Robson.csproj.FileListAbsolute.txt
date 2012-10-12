@@ -1,0 +1,9 @@
+C:\Exercicio\Teste Robson\Teste Robson\bin\Debug\Teste Robson.exe
+C:\Exercicio\Teste Robson\Teste Robson\bin\Debug\Teste Robson.pdb
+C:\Exercicio\Teste Robson\Teste Robson\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Exercicio\Teste Robson\Teste Robson\obj\x86\Debug\Teste_Robson.FormPrincipal.resources
+C:\Exercicio\Teste Robson\Teste Robson\obj\x86\Debug\Teste_Robson.Properties.Resources.resources
+C:\Exercicio\Teste Robson\Teste Robson\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Exercicio\Teste Robson\Teste Robson\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Exercicio\Teste Robson\Teste Robson\obj\x86\Debug\Teste Robson.exe
+C:\Exercicio\Teste Robson\Teste Robson\obj\x86\Debug\Teste Robson.pdb
