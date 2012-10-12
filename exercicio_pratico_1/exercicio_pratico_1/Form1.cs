@@ -329,6 +329,49 @@ namespace exercicio_pratico_1
         }
         #endregion
 
+        private void nome_filme_Enter(object sender, EventArgs e)
+        {
+            if (sender is TextBox)
+            {
+                TextBox aux = (TextBox)sender;
+                aux.BackColor = Color.BlanchedAlmond;
+            }
+        }
+
+        private void nome_filme_Leave(object sender, EventArgs e)
+        {
+            if (sender is TextBox)
+            {
+                TextBox aux = (TextBox)sender;
+                aux.BackColor = SystemColors.Window;
+                if (aux.Text == "")
+                {
+                    errorProvider1.SetError(aux, "Campo Obrigatório");
+                }
+            }
+        }
+
+        private void lista_genero_Enter(object sender, EventArgs e)
+        {
+            if (sender is ComboBox)
+            {
+                ComboBox aux = (ComboBox)sender;
+                aux.BackColor = Color.BlanchedAlmond;
+            }
+        }
+
+        private void lista_genero_Leave(object sender, EventArgs e)
+        {
+            if (sender is ComboBox)
+            {
+                ComboBox aux = (ComboBox)sender;
+                aux.BackColor = SystemColors.Window;
+                if (aux.Text == "")
+                {
+                    errorProvider1.SetError(aux, "Campo Obrigatório");
+                }
+            }
+        }
 
     }
 }
