@@ -48,6 +48,9 @@ namespace exercicio_pratico_1
             //Ligando os Grupos do ListVIew aos valores do Combobox
             lista_genero.DataSource = listView1.Groups;
             pesq_categoria.DataSource = listView2.Groups;
+            nome_filme.Text = string.Empty;
+            lista_genero.SelectedItem = null;
+            local.Text = string.Empty;
         }
         #endregion
 
@@ -57,8 +60,22 @@ namespace exercicio_pratico_1
 
         //-------------Tab control para cadastro de filmes----------------------------//
         #region cadastrar
-        private void cadastrar_Click(object sender, EventArgs e)
+        private void cadastrar_Click_1(object sender, EventArgs e)
         {
+            if(nome_filme.Text == string.Empty)
+            {
+                errorProvider1.SetError(nome_filme, "Campo Obrigatorio");
+            }
+            if(lista_genero.SelectedItem != lista_genero.Items)
+            {
+                errorProvider1.SetError(lista_genero, "Campo Obrigatório");
+            }
+            if(local.Text == string.Empty)
+            {
+                errorProvider1.SetError(local, "Campo Obrigatório");
+            }
+            else
+            {
             Filme filme = new Filme();
             //armazenando os valor digitados pelo usuario no objeto da classe Filme
             filme.Nome = nome_filme.Text;
@@ -87,6 +104,7 @@ namespace exercicio_pratico_1
             novo_item.SubItems.Add(filme.Data_Assistido.ToShortDateString());
             novo_item.SubItems.Add(filme.Local);
             listView1.Items.Add(novo_item);
+        }
         }
         #endregion
 
@@ -227,48 +245,55 @@ namespace exercicio_pratico_1
         //------------------------tabcontrol para pesquisa-------------------------//
 
         #region Pesquisa
+        
         /*quando o botão de pesquisa é disparado, a lista de pesquisa é atribuida com os valores dos filmes armazenados no dicionario
         para agilizar a pesquisa, caso o checkbox de genero esteja marcado, a lista de pesquisa será atribuida com os valores
          da lista contida na posição do dicionario equivalente ao genero selecionado*/
         private void pesquisa_Click(object sender, EventArgs e)
         {
-            //verifica se o checkbox do genero está marcado
-            if (ck_box_categoria.Checked == true)
+            if ((ck_box_nome.Checked == false) && (ck_box_categoria.Checked == false) && (ck_box_data.Checked == false) && (ck_box_local.Checked == false))
             {
-                //verifica se a lista desejada contem no dicionario
-                if (dicionario_filmes.ContainsKey(pesq_categoria.SelectedIndex))
+                errorProvider1.SetError(pesquisa, "Nenhum parametro selecionado");
+            }
+            else
+            {
+                //verifica se o checkbox do genero está marcado
+                if (ck_box_categoria.Checked == true)
                 {
-                    //atribui os valores do dicionario na lista de pesquisa
-                    int auxiliar = pesq_categoria.SelectedIndex;
-                    List<Filme> lista = dicionario_filmes[auxiliar];
-                    lista_pesquisa.AddRange(lista);
+                    //verifica se a lista desejada contem no dicionario
+                    if (dicionario_filmes.ContainsKey(pesq_categoria.SelectedIndex))
+                    {
+                        //atribui os valores do dicionario na lista de pesquisa
+                        int auxiliar = pesq_categoria.SelectedIndex;
+                        List<Filme> lista = dicionario_filmes[auxiliar];
+                        lista_pesquisa.AddRange(lista);
+                    }
+                    else
+                    {
+                        //essa mensagem será apresentada caso não tenha um filme cadastrado pra tal genero
+                        //MessageBox.Show("Não existe filme para tal genero", "Atenção", MessageBoxButtons.OK);
+                    }
                 }
                 else
-                {   
-                    //essa mensagem será apresentada caso não tenha um filme cadastrado pra tal genero
-                    MessageBox.Show("Não existe filme para tal genero", "Atenção", MessageBoxButtons.OK);
+                {
+                    //atribuição da lista de pesquisa com os valores do dicionario completo
+                    foreach (List<Filme> l in dicionario_filmes.Values)
+                        lista_pesquisa.AddRange(l);
                 }
-            }
-            else
-            {
-                //atribuição da lista de pesquisa com os valores do dicionario completo
-                foreach (List<Filme> l in dicionario_filmes.Values)
-                    lista_pesquisa.AddRange(l);
-            }
-            
-            //verifica se a lista de pesquisa não está vazia
-            if (lista_pesquisa.Count == 0)
-            {
-                MessageBox.Show("Não foi cadastrado nenhum filme", "Atenção", MessageBoxButtons.OK);
-            }
-            else
-            {
 
-            //o FOR é utilizado para percorrer toda a lista de pesquisa
-            for (int i = 0; i < lista_pesquisa.Count; ++i)
-                {     
+                //verifica se a lista de pesquisa não está vazia
+                if (lista_pesquisa.Count == 0)
+                {
+                    //MessageBox.Show("Não foi cadastrado nenhum filme", "Atenção", MessageBoxButtons.OK);
+                }
+                else
+                {
+
+                    //o FOR é utilizado para percorrer toda a lista de pesquisa
+                    for (int i = 0; i < lista_pesquisa.Count; ++i)
+                    {
                         Filme obj_pesquisa = lista_pesquisa[i];
-                        
+
                         /*nessa condição é verificado se o checkbox de nome esta ativo e se o nome no textbox é diferente aos objetos da lista
                         caso algum objeto coresponda a essas condições ele será removido da lista de pesquisa
                          obs: não importa se o usuario entrou com letras maiusculas ou minusculas*/
@@ -277,7 +302,7 @@ namespace exercicio_pratico_1
                             lista_pesquisa.Remove(obj_pesquisa);
                             i--;
                         }
-                        
+
                         /*nessa condição é verificado se o checkbox de data esta ativo e se a data em que o filme foi assistido está
                         fora do intervalo fornecido pelo usuario,
                         caso algum objeto coresponda a essas condições ele será removido da lista de pesquisa*/
@@ -297,22 +322,23 @@ namespace exercicio_pratico_1
                         }
                     }
                 }
-            
-            //a lista de pesquisa é apresentada no listview
-            foreach(Filme obj_apresentacao in lista_pesquisa)
-            {  
-                ListViewItem listview_pesquisa = new ListViewItem();
-                listview_pesquisa.Group = listView2.Groups[obj_apresentacao.Genero];
-                listview_pesquisa.Text = obj_apresentacao.Nome;
-                listview_pesquisa.SubItems.Add(obj_apresentacao.Data_Assistido.ToShortDateString());
-                listview_pesquisa.SubItems.Add(obj_apresentacao.Local);
-                listView2.Items.Add(listview_pesquisa);
-            }
 
-            /*o botão de pesuisa é travado para forçar o usuario a limpar os parametros de pesquisa e o botão limpar é liberado*/
-            pesquisa.Enabled = false;
-            limpar_pesquisa.Enabled = true;
-         }
+                //a lista de pesquisa é apresentada no listview
+                foreach (Filme obj_apresentacao in lista_pesquisa)
+                {
+                    ListViewItem listview_pesquisa = new ListViewItem();
+                    listview_pesquisa.Group = listView2.Groups[obj_apresentacao.Genero];
+                    listview_pesquisa.Text = obj_apresentacao.Nome;
+                    listview_pesquisa.SubItems.Add(obj_apresentacao.Data_Assistido.ToShortDateString());
+                    listview_pesquisa.SubItems.Add(obj_apresentacao.Local);
+                    listView2.Items.Add(listview_pesquisa);
+                }
+
+                /*o botão de pesuisa é travado para forçar o usuario a limpar os parametros de pesquisa e o botão limpar é liberado*/
+                pesquisa.Enabled = false;
+                limpar_pesquisa.Enabled = true;
+            }
+        }
         #endregion
 
         #region Limpar
@@ -329,12 +355,16 @@ namespace exercicio_pratico_1
         }
         #endregion
 
+
+        //-----------------------Interface----------------------------------------//
+        #region textbox
         private void nome_filme_Enter(object sender, EventArgs e)
         {
             if (sender is TextBox)
             {
                 TextBox aux = (TextBox)sender;
                 aux.BackColor = Color.BlanchedAlmond;
+                errorProvider1.SetError(aux, "");
             }
         }
 
@@ -344,19 +374,18 @@ namespace exercicio_pratico_1
             {
                 TextBox aux = (TextBox)sender;
                 aux.BackColor = SystemColors.Window;
-                if (aux.Text == "")
-                {
-                    errorProvider1.SetError(aux, "Campo Obrigatório");
-                }
             }
         }
+        #endregion
 
+        #region combobox
         private void lista_genero_Enter(object sender, EventArgs e)
         {
             if (sender is ComboBox)
             {
                 ComboBox aux = (ComboBox)sender;
                 aux.BackColor = Color.BlanchedAlmond;
+                errorProvider1.SetError(aux, "");
             }
         }
 
@@ -366,12 +395,19 @@ namespace exercicio_pratico_1
             {
                 ComboBox aux = (ComboBox)sender;
                 aux.BackColor = SystemColors.Window;
-                if (aux.Text == "")
-                {
-                    errorProvider1.SetError(aux, "Campo Obrigatório");
-                }
             }
         }
+        #endregion
+
+        private void data_Enter(object sender, EventArgs e)
+        {
+            if (sender is DateTimePicker)
+            {
+                DateTimePicker aux = (DateTimePicker)sender;
+                aux.CalendarTitleBackColor = Color.BlanchedAlmond;
+            }
+        }
+
 
     }
 }
